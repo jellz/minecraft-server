@@ -32,7 +32,7 @@ class Server extends mc.Server {
     this.favicon = favicon;
     this.serverKey = new NodeRSA({ b: 1024 });
     if (typeof options.plugins !== 'array') return;
-    this.plugins = options.plugins.map(plugin => new Plugin(this));
+    this.plugins = options.plugins.map(plugin => { return new plugin(this) });
 
     server.listen(options.port, options.host);
   }
