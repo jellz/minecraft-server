@@ -1,8 +1,6 @@
 const mc = require('minecraft-protocol');
 const MCServer = require('./Server');
 
-const LoginPlugin = require('./plugins/LoginPlugin');
-
 const server = new Server({
   'online-mode': true,
   encryption: true,
