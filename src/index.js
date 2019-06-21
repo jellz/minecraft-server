@@ -12,7 +12,6 @@ const server = new Server({
   plugins: [LoginPlugin]
 });
 
-server.listen(port, host);
 // server.on('login', client => {
 //   server.clients.forEach(client => {});
 //   client.write('login', {

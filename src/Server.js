@@ -16,7 +16,7 @@ class Server extends mc.Server {
 
     const optVersion =
       version === undefined || version === false
-        ? require('./version').defaultVersion
+        ? require('minecraft-protocol/src/version').defaultVersion
         : version;
 
     const mcData = require('minecraft-data')(optVersion);
@@ -24,15 +24,17 @@ class Server extends mc.Server {
     const hideErrors = options.hideErrors || false;
 
     super(mcversion.minecraftVersion, customPackets, hideErrors);
-    server.mcversion = mcversion;
-    server.motd = motd;
-    server.maxPlayers = maxPlayers;
-    server.playerCount = 0;
-    server.onlineModeExceptions = {};
-    server.favicon = favicon;
-    server.serverKey = new NodeRSA({ b: 1024 });
+    this.mcversion = mcversion;
+    this.motd = motd;
+    this.maxPlayers = maxPlayers;
+    this.playerCount = 0;
+    this.onlineModeExceptions = {};
+    this.favicon = favicon;
+    this.serverKey = new NodeRSA({ b: 1024 });
     if (typeof options.plugins !== 'array') return;
     this.plugins = options.plugins.map(plugin => new Plugin(this));
+
+    server.listen(options.port, options.host);
   }
 }
 
