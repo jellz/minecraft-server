@@ -1,4 +1,5 @@
 const mc = require('minecraft-protocol');
+const NodeRSA = require('node-rsa');
 
 class Server extends mc.Server {
   constructor(options = {}) {
@@ -30,11 +31,9 @@ class Server extends mc.Server {
     server.onlineModeExceptions = {};
     server.favicon = favicon;
     server.serverKey = new NodeRSA({ b: 1024 });
-  }
-  loadPlugins(plugins) {
-      
+    if (typeof options.plugins !== 'array') return;
+    this.plugins = options.plugins.map(plugin => new Plugin(this));
   }
 }
-
 
 module.exports = Server;
