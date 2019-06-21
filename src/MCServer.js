@@ -1,6 +1,6 @@
-const { Server } = require('minecraft-protocol');
+const mc = require('minecraft-protocol');
 
-class MCServer extends Server {
+class Server extends mc.Server {
   constructor(options = {}) {
     const {
       host = '0.0.0.0',
@@ -31,4 +31,10 @@ class MCServer extends Server {
     server.favicon = favicon;
     server.serverKey = new NodeRSA({ b: 1024 });
   }
+  loadPlugins(plugins) {
+      
+  }
 }
+
+
+module.exports = Server;

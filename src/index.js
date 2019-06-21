@@ -1,6 +1,8 @@
 const mc = require('minecraft-protocol');
 const MCServer = require('./MCServer');
 
+const LoginPlugin = require('./plugins/LoginPlugin');
+
 const server = new MCServer({
   'online-mode': true,
   encryption: true,
@@ -8,6 +10,8 @@ const server = new MCServer({
   port: 25565,
   maxPlayers: 10
 });
+
+server.on('login', new LoginPlugin('login'));
 
 server.listen(port, host);
 // server.on('login', client => {

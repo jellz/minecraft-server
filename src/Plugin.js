@@ -1,6 +1,5 @@
 class Plugin {
-  constructor(server, name) {
+  constructor(server) {
     this.server = server;
-    this.name = name;
   }
 }
