@@ -3,3 +3,4 @@ class Plugin {
     this.server = server;
   }
 }
+module.exports.Plugin = Plugin;

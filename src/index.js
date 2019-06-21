@@ -1,5 +1,5 @@
 const mc = require('minecraft-protocol');
-const MCServer = require('./Server');
+const Server = require('./Server');
 
 const LoginPlugin = require('./plugins/LoginPlugin');
 
