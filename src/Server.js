@@ -11,7 +11,8 @@ class Server extends mc.Server {
       'max-players': maxPlayers = 20,
       version,
       favicon,
-      customPackets
+      customPackets,
+      plugins = []
     } = options;
 
     const optVersion =
@@ -31,10 +32,10 @@ class Server extends mc.Server {
     this.onlineModeExceptions = {};
     this.favicon = favicon;
     this.serverKey = new NodeRSA({ b: 1024 });
-    if (typeof options.plugins !== 'array') return;
+    
     this.plugins = options.plugins.map(plugin => { return new plugin(this) });
 
-    server.listen(options.port, options.host);
+    this.listen(options.port, options.host);
   }
 }
 

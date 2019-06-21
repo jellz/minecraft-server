@@ -11,3 +11,5 @@ class LoginPlugin extends Plugin {
     console.log('someone logged in');
   }
 }
+
+module.exports = LoginPlugin;

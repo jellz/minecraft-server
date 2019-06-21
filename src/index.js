@@ -9,7 +9,7 @@ const server = new Server({
   host: '0.0.0.0',
   port: 25565,
   maxPlayers: 10,
-  plugins: [LoginPlugin]
+  plugins: [ LoginPlugin ]
 });
 
 // server.on('login', client => {
