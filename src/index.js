@@ -2,6 +2,7 @@ const mc = require('minecraft-protocol');
 const Server = require('./Server');
 
 const LoginPlugin = require('./plugins/LoginPlugin');
+const DebugPlugin = require('./plugins/DebugPlugin');
 
 const server = new Server({
   'online-mode': true,
@@ -10,7 +11,7 @@ const server = new Server({
   port: 25565,
   maxPlayers: 10,
   // version: '1.14.1',
-  plugins: [LoginPlugin]
+  plugins: [LoginPlugin, DebugPlugin]
 });
 // server.listen(25565, '0.0.0.0');
 // server.on('login', client => {
