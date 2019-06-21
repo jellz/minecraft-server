@@ -1,41 +1,14 @@
 const mc = require('minecraft-protocol');
 const NodeRSA = require('node-rsa');
 
-class Server extends mc.Server {
+class Server {
   constructor(options = {}) {
-    const {
-      host = '0.0.0.0',
-      'server-port': serverPort,
-      port = serverPort || 25565,
-      motd = 'A Minecraft server',
-      'max-players': maxPlayers = 20,
-      version,
-      favicon,
-      customPackets,
-      plugins = []
-    } = options;
-
-    const optVersion =
-      version === undefined || version === false
-        ? require('minecraft-protocol/src/version').defaultVersion
-        : version;
-
-    const mcData = require('minecraft-data')(optVersion);
-    const mcversion = mcData.version;
-    const hideErrors = options.hideErrors || false;
-
-    super(mcversion.minecraftVersion, customPackets, hideErrors);
-    this.mcversion = mcversion;
-    this.motd = motd;
-    this.maxPlayers = maxPlayers;
-    this.playerCount = 0;
-    this.onlineModeExceptions = {};
-    this.favicon = favicon;
-    this.serverKey = new NodeRSA({ b: 1024 });
+    this.options = options;
+    this.server = mc.createServer(options);
     
-    this.plugins = options.plugins.map(plugin => { return new plugin(this) });
-
-    this.listen(options.port, options.host);
+    this.plugins = options.plugins.map(plugin => {
+      return new plugin(this);
+    });
   }
 }
 

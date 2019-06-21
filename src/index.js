@@ -9,9 +9,10 @@ const server = new Server({
   host: '0.0.0.0',
   port: 25565,
   maxPlayers: 10,
-  plugins: [ LoginPlugin ]
+  // version: '1.14.1',
+  plugins: [LoginPlugin]
 });
-
+// server.listen(25565, '0.0.0.0');
 // server.on('login', client => {
 //   server.clients.forEach(client => {});
 //   client.write('login', {
