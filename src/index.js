@@ -1,7 +1,7 @@
 const mc = require('minecraft-protocol');
-const Server = require('./Server');
+const MCServer = require('./MCServer');
 
-const server = new Server({
+const server = new MCServer({
   'online-mode': true,
   encryption: true,
   host: '0.0.0.0',

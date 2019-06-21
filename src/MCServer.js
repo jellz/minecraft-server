@@ -1,6 +1,6 @@
 const { Server } = require('minecraft-protocol');
 
-class Server extends Server {
+class MCServer extends Server {
   constructor(options = {}) {
     const {
       host = '0.0.0.0',
