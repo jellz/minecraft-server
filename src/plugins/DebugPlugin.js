@@ -1,4 +1,4 @@
-const { Plugin } = require('../Plugin');
+const Plugin = require('../Plugin');
 
 class DebugPlugin extends Plugin {
   constructor(server) {
