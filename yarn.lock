@@ -79,6 +79,10 @@ minecraft-data@^2.37.3:
   resolved "https://registry.yarnpkg.com/minecraft-data/-/minecraft-data-2.37.5.tgz#64cc53192505f3e9465a091bc18476ee7947eb61"
   integrity sha512-0OGbSo4pY0i3pDoMHpgpA7nfxKnb4D0pDT/1s8VAIUfJBqIYQrRdkKhaGKkOtALw76NjkjurqRET4fJ5DIp/xA==
 
+minecraft-data@prismarinejs/minecraft-data:
+  version "0.0.0"
+  resolved "https://codeload.github.com/prismarinejs/minecraft-data/tar.gz/980226727545a7cf2731ba7900faa0adf6ff2758"
+
 minecraft-protocol@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/minecraft-protocol/-/minecraft-protocol-1.9.0.tgz#b9291abbb0172f0623f42d8132ee8e2ea239b835"

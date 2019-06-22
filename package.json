@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "minecraft-data": "prismarinejs/minecraft-data",
     "minecraft-protocol": "^1.9.0"
   }
 }

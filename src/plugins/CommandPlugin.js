@@ -1,9 +1,11 @@
 const Plugin = require('../Plugin');
 
-class ChatPlugin extends Plugin {
+class CommandPlugin extends Plugin {
   constructor(server) {
     super(server);
+    this.commands
   }
 
 }
-module.exports = ChatPlugin;
+
+module.exports = CommandPlugin;

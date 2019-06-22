@@ -11,7 +11,8 @@ const server = new Server({
   port: 25565,
   maxPlayers: 10,
   // version: '1.14.1',
-  plugins: [LoginPlugin, DebugPlugin]
+  plugins: [LoginPlugin, DebugPlugin],
+  commands: []
 });
 // server.listen(25565, '0.0.0.0');
 // server.on('login', client => {

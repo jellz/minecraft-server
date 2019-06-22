@@ -23,10 +23,8 @@ class LoginPlugin extends Plugin {
         maxPlayers: this.server.options.maxPlayers,
         reducedDebugInfo: false
       });
-      console.log(Object.keys(this.server.server.clients));
-      
-      Array.from(this.server.server.clients).forEach(client => {
-        client.write('player_info', {
+      [...Array.from(this.server.server.clients), client].forEach(iClient => {
+        iClient.write('player_info', {
           action: 0,
           data: [
             {
@@ -40,14 +38,10 @@ class LoginPlugin extends Plugin {
         });
       });
 
-      client.write('position', {
-        x: 0,
-        y: 60,
-        z: 0,
-        yaw: 0,
-        pitch: 0,
-        flags: 0x00
-      });
+      client.write('position', Object.assign(player.pos, {flags: 0x00}))
+
+      this.server.emit("player", player);
+
     });
   }
 }
