@@ -8,8 +8,9 @@ class Command {
    */
 
    // TODO: Implement proper parsing, validation blah blah blah (and implement Autocomplete in CommandPlugin properly)
-  constructor(server) {
+  constructor(server, chatName) {
     this.server = server;
+    this.chatName
   }
   /**
    * @param {Player} player 

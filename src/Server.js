@@ -18,7 +18,7 @@ class Server extends EventEmitter {
     this.plugins = options.plugins.map(plugin => {
       return new plugin(this);
     });
-
+    this.emit("started");
   }
 }
 
