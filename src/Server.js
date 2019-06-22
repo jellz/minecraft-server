@@ -19,10 +19,6 @@ class Server extends EventEmitter {
       return new plugin(this);
     });
 
-    // CommandPlugin manages the client-side part of this.
-    this.commands = options.commands.map(command => {
-      return new command(this);
-    });
   }
 }
 

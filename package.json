@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "minecraft-data": "prismarinejs/minecraft-data",
-    "minecraft-protocol": "^1.9.0"
+    "minecraft-protocol": "^1.9.0",
+    "prismarine-chunk": "^1.11.0"
   }
 }

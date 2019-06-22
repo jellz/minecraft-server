@@ -32,7 +32,7 @@ class LoginPlugin extends Plugin {
               name: client.profile.name,
               properties: client.profile.properties,
               gamemode: 1,
-              ping: 50
+              ping: client.latency
             }
           ]
         });

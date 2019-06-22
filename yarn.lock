@@ -118,6 +118,28 @@ phin@^2.2.1:
   resolved "https://registry.yarnpkg.com/phin/-/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==
 
+prismarine-biome@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/prismarine-biome/-/prismarine-biome-1.0.1.tgz#02e4e0951c1f11508b5cacbb014ebb76ddddb04d"
+  integrity sha1-AuTglRwfEVCLXKy7AU67dt3dsE0=
+
+prismarine-block@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/prismarine-block/-/prismarine-block-1.1.1.tgz#6d042b577647f1fc28240f1167806cc2af35224f"
+  integrity sha512-dXqOyEG4Pu7KK5yCZOe5vkEY4uBL1q6qeKrIVxK10MQx6N1V6cl0pNj2OBQZB8V1FFnoFPVJMPzJS4gI2DPlNQ==
+  dependencies:
+    prismarine-biome "^1.0.0"
+
+prismarine-chunk@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/prismarine-chunk/-/prismarine-chunk-1.11.0.tgz#5a2df374b825e8b5474faf4f4e44cd42db2842e0"
+  integrity sha512-rA8pR3UwJlchVVs/kNUCaBiq+LjvbNIc7vck8h3I8XC7jNBZXp2WM9TWxR/vV1Hq9LcfVlqJVPqgyRx+fqpjrQ==
+  dependencies:
+    prismarine-block "^1.1.1"
+    protodef "^1.3.1"
+    uint4 "^0.1.2"
+    vec3 "^0.1.3"
+
 prismarine-nbt@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prismarine-nbt/-/prismarine-nbt-1.2.1.tgz#4b0e50e538a4676ee259ae0588120360ab39110d"
@@ -132,7 +154,7 @@ protodef-validator@^1.2.2:
   dependencies:
     ajv "^6.5.4"
 
-protodef@^1.2.1, protodef@^1.6.7:
+protodef@^1.2.1, protodef@^1.3.1, protodef@^1.6.7:
   version "1.6.9"
   resolved "https://registry.yarnpkg.com/protodef/-/protodef-1.6.9.tgz#3e913264757e1cf8489589552ec04263a44401f2"
   integrity sha512-evAmLjdHgQ3B+wYyCgEijQxSBW049psaXCQlvg6PeJGhgTGEcMrn3M7idHbYvpGNKVIqwnIx8dpFpz1CJNm1wQ==
@@ -168,6 +190,11 @@ string_decoder@^1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
+uint4@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/uint4/-/uint4-0.1.2.tgz#50c5ae04b85d28128f2df3cc0ecc4d41abc2f681"
+  integrity sha1-UMWuBLhdKBKPLfPMDsxNQavC9oE=
+
 uri-js@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
@@ -191,6 +218,11 @@ uuid@^3.1.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
+
+vec3@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/vec3/-/vec3-0.1.3.tgz#f5952e10537d9d6eb854b8ab7cef01b2fc14e5af"
+  integrity sha1-9ZUuEFN9nW64VLirfO8BsvwU5a8=
 
 yggdrasil@^1.1.1:
   version "1.1.1"

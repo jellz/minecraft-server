@@ -3,6 +3,7 @@ const Server = require('./Server');
 
 const LoginPlugin = require('./plugins/LoginPlugin');
 const DebugPlugin = require('./plugins/DebugPlugin');
+const CommandPlugin = require('./plugins/CommandPlugin');
 
 const server = new Server({
   'online-mode': true,
@@ -10,9 +11,7 @@ const server = new Server({
   host: '0.0.0.0',
   port: 25565,
   maxPlayers: 10,
-  // version: '1.14.1',
-  plugins: [LoginPlugin, DebugPlugin],
-  commands: []
+  plugins: [LoginPlugin, DebugPlugin, CommandPlugin]
 });
 // server.listen(25565, '0.0.0.0');
 // server.on('login', client => {
