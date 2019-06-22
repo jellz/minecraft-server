@@ -3,7 +3,8 @@ const Plugin = require('../Plugin');
 class DebugPlugin extends Plugin {
   constructor(server) {
     super(server);
-    this.server.server.on('login', client => {
+    this.server.on('player', player => {
+      const client = player.client;
       client.on('packet', console.log);
       client.on('packet', (data, meta) => {
         if (meta.name !== 'chat') return;
