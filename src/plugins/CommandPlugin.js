@@ -3,7 +3,7 @@ const Plugin = require('../Plugin');
 class CommandPlugin extends Plugin {
   constructor(server) {
     super(server);
-    this.commands
+    // By now, all of the commands are in the array.
   }
 
 }
