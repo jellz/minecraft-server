@@ -8,7 +8,9 @@ class DisconnectPlugin extends Plugin {
     this.server.on('playerLeave', event => {
       const player = event.player;
       console.log('player left', player.uuid);
-      this.server.players.delete(getPlayerByUuid(player.uuid, this.server.players));
+      this.server.players.delete(
+        getPlayerByUuid(player.uuid, this.server.players)
+      );
       this.server.players.forEach(_player => {
         _player.client.write('player_info', {
           action: 4,
