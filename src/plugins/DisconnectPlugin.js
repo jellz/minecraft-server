@@ -4,7 +4,8 @@ class DisconnectPlugin extends Plugin {
   constructor(server) {
     super(server);
 
-    this.server.on('playerLeave', player => {
+    this.server.on('playerLeave', event => {
+      const player = event.player;
       console.log('player left', player.uuid);
       this.server.players.forEach(_player => {
         _player.client.write('player_info', {

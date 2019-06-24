@@ -4,12 +4,12 @@ const Player = require('../Player');
 class LoginPlugin extends Plugin {
   constructor(server) {
     super(server);
-    this.server.on('playerLogin', client => {
+    this.server.on('playerLogin', event => {
       console.log('playerLogin received');
-      console.log(client);
+      console.log(event);
+      this.server.players.add(event.player);
 
-      const player = new Player(client, this.server);
-      this.server.players.add(player);
+      const client = event.player.client;
 
       client.write('login', {
         entityId: client.id,
@@ -21,7 +21,7 @@ class LoginPlugin extends Plugin {
         reducedDebugInfo: false
       });
 
-      this.server.on('playerSettings', (player, settings) => player.updateSettings(settings));
+      this.server.on('playerSettings', event => event.player.updateSettings(event.settings));
 
       // TODO: optimise player info implementation
       this.server.players.forEach(_player => {
@@ -53,10 +53,10 @@ class LoginPlugin extends Plugin {
         });
       });
 
-      client.write('position', Object.assign(player.position, { flags: 0x00 }));
+      client.write('position', Object.assign(event.player.position, { flags: 0x00 }));
 
       // this.server.emit('newPlayer', player);
-      this.server.broadcastMessage(`${player.username} joined`, 'yellow');
+      this.server.broadcastMessage(`${event.player.username} joined`, 'yellow');
     });
   }
 }

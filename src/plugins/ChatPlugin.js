@@ -3,7 +3,8 @@ const Plugin = require('../Plugin');
 class ChatPlugin extends Plugin {
   constructor(server) {
     super(server);
-    this.server.on('chat', (player, message) => {
+    this.server.on('chat', (event) => {
+      const player = event.player;
       Object.values(this.server.server.clients).forEach(_client => {
         _client.write('chat', {
           message: JSON.stringify({
@@ -21,7 +22,7 @@ class ChatPlugin extends Plugin {
                 },
                 insertion: player.username
               },
-              { text: message }
+              { text: event.message }
             ]
           }),
           position: 0

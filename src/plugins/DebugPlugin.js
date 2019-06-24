@@ -4,8 +4,8 @@ class DebugPlugin extends Plugin {
   constructor(server) {
     super(server);
 
-    this.server.on('playerLogin', client => {
-      client.on('packet', console.log);
+    this.server.on('playerLogin', event => {
+      event.player.client.on('packet', console.log);
     });
   }
 }
