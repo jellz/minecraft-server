@@ -1,6 +1,6 @@
 const mc = require('minecraft-protocol');
 const Player = require('./Player');
-const { parseColoredMessage } = require('./Util');
+const { parseColoredMessage } = require('./util/Util');
 const EventEmitter = require('events');
 
 class Server extends EventEmitter {
