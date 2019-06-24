@@ -76,7 +76,9 @@ class LoginPlugin extends Plugin {
       );
 
       // this.server.emit('newPlayer', player);
-      this.server.broadcastMessage(`${ChatColor.YELLOW}${event.player.username} joined`);
+      this.server.broadcastMessage(
+        `${ChatColor.YELLOW}${event.player.username} joined`
+      );
     });
   }
 }
