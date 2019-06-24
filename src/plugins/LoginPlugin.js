@@ -1,5 +1,6 @@
 const Plugin = require('../Plugin');
-const { getPlayerByUuid } = require('../Util');
+const { getPlayerByUuid } = require('../util/Util');
+const ChatColor = require('../util/ChatColor');
 
 class LoginPlugin extends Plugin {
   constructor(server) {
@@ -62,7 +63,7 @@ class LoginPlugin extends Plugin {
       client.write('position', Object.assign(event.player.position, { flags: 0x00 }));
 
       // this.server.emit('newPlayer', player);
-      this.server.broadcastMessage(`${event.player.username} joined`, 'yellow');
+      this.server.broadcastMessage(`${ChatColor.YELLOW}${event.player.username} joined`);
     });
   }
 }
