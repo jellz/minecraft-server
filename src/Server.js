@@ -20,6 +20,8 @@ class Server extends EventEmitter {
     });
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleConnection = this.handleConnection.bind(this);
+    this.server.on('connection', this.handleConnection);
     this.server.on('login', this.handleLogin);
 
     this.emit('ready');
@@ -52,6 +54,13 @@ class Server extends EventEmitter {
     });
 
     client.socket.on('close', () => this.emit('playerLeave', { player }));
+  }
+
+  handleConnection(client) {
+    console.log('handle connection');
+    this.emit('connection');
+    console.log(client.state, client.version);
+    // if (client.state === 'handshaking' && client.version === '1.14.1') {}
   }
 }
 
