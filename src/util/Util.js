@@ -59,7 +59,7 @@ class Util {
         obfuscated
       });
       text = '';
-    }
+    };
 
     while (message !== '') {
       const currentChar = message[0];
