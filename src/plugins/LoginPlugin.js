@@ -1,5 +1,5 @@
 const Plugin = require('../Plugin');
-const Player = require('../Player');
+const { getPlayerByUuid } = require('../Util');
 
 class LoginPlugin extends Plugin {
   constructor(server) {
@@ -7,6 +7,12 @@ class LoginPlugin extends Plugin {
     this.server.on('playerLogin', event => {
       console.log('playerLogin received');
       console.log(event);
+      if (this.server.players.has(getPlayerByUuid(event.player.uuid, this.server.players))) { // Player is already logged in from somewhere else (see issue #4)
+        const existingPlayer = getPlayerByUuid(event.player.uuid, this.server.players);
+        existingPlayer.client.end('You logged in from another location!');
+        this.server.players.delete(existingPlayer);
+      }
+
       this.server.players.add(event.player);
 
       const client = event.player.client;
