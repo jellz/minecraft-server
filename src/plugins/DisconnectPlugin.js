@@ -1,5 +1,5 @@
 const Plugin = require('../Plugin');
-const { getPlayerByUuid } = require('../Util');
+const { getPlayerByUuid } = require('../util/Util');
 
 class DisconnectPlugin extends Plugin {
   constructor(server) {
