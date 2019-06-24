@@ -40,7 +40,7 @@ class LoginPlugin extends Plugin {
         event.player.updateSettings(event.settings)
       );
 
-      // TODO: optimise player info implementation
+      // TODO: refactor player info implementation
       this.server.players.forEach(_player => {
         console.log(_player.uuid);
         this.server.players.forEach(_otherplayer => {
