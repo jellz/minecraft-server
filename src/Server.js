@@ -1,5 +1,6 @@
 const mc = require('minecraft-protocol');
 const Player = require('./Player');
+const { parseColoredMessage } = require('./Util');
 const EventEmitter = require('events');
 
 class Server extends EventEmitter {
@@ -27,14 +28,11 @@ class Server extends EventEmitter {
     this.emit('ready');
   }
 
-  broadcastMessage(message, color) {
+  broadcastMessage(message) {
     Object.values(this.server.clients).forEach(_client => {
       _client.write('chat', {
-        position: 0,
-        message: JSON.stringify({
-          text: message,
-          color: color.toString()
-        })
+        position: 1,
+        message: JSON.stringify(parseColoredMessage(message))
       });
     });
   }
