@@ -7,8 +7,16 @@ class LoginPlugin extends Plugin {
     this.server.on('playerLogin', event => {
       console.log('playerLogin received');
       console.log(event);
-      if (this.server.players.has(getPlayerByUuid(event.player.uuid, this.server.players))) { // Player is already logged in from somewhere else (see issue #4)
-        const existingPlayer = getPlayerByUuid(event.player.uuid, this.server.players);
+      if (
+        this.server.players.has(
+          getPlayerByUuid(event.player.uuid, this.server.players)
+        )
+      ) {
+        // Player is already logged in from somewhere else (see issue #4)
+        const existingPlayer = getPlayerByUuid(
+          event.player.uuid,
+          this.server.players
+        );
         existingPlayer.client.end('You logged in from another location!');
         this.server.players.delete(existingPlayer);
       }
@@ -27,7 +35,9 @@ class LoginPlugin extends Plugin {
         reducedDebugInfo: false
       });
 
-      this.server.on('playerSettings', event => event.player.updateSettings(event.settings));
+      this.server.on('playerSettings', event =>
+        event.player.updateSettings(event.settings)
+      );
 
       // TODO: optimise player info implementation
       this.server.players.forEach(_player => {
@@ -45,7 +55,7 @@ class LoginPlugin extends Plugin {
               }
             ]
           });
-          
+
           // _otherplayer.client.write('named_entity_spawn', {
           //   entityId: _player.uuid,
           //   playerUUID: _player.uuid,
@@ -59,7 +69,10 @@ class LoginPlugin extends Plugin {
         });
       });
 
-      client.write('position', Object.assign(event.player.position, { flags: 0x00 }));
+      client.write(
+        'position',
+        Object.assign(event.player.position, { flags: 0x00 })
+      );
 
       // this.server.emit('newPlayer', player);
       this.server.broadcastMessage(`${event.player.username} joined`, 'yellow');
