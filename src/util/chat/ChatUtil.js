@@ -52,7 +52,7 @@ class ChatUtil {
         obfuscated
       });
       text = '';
-    }
+    };
 
     while (message !== '') {
       const currentChar = message[0];

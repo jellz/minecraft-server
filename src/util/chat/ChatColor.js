@@ -22,6 +22,6 @@ const ChatColor = {
   UNDERLINE: '&n',
   ITALIC: '&o',
   RESET: '&r'
-}
+};
 
 module.exports = ChatColor;

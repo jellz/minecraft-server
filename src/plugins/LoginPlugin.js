@@ -39,7 +39,7 @@ class LoginPlugin extends Plugin {
         event.player.updateSettings(event.settings)
       );
 
-      // TODO: optimise player info implementation
+      // TODO: refactor player info implementation
       this.server.players.forEach(_player => {
         console.log(_player.uuid);
         this.server.players.forEach(_otherplayer => {
@@ -75,7 +75,9 @@ class LoginPlugin extends Plugin {
       );
 
       // this.server.emit('newPlayer', player);
-      this.server.broadcastMessage(`${ChatColor.YELLOW}${event.player.username} joined`);
+      this.server.broadcastMessage(
+        `${ChatColor.YELLOW}${event.player.username} joined`
+      );
     });
   }
 }
