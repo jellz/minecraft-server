@@ -1,5 +1,5 @@
 const Plugin = require('../Plugin');
-const ChatColor = require('../util/chat/ChatColor');
+const ChatColor = require('../chat/ChatColor');
 
 class LoginPlugin extends Plugin {
   constructor(server) {
