@@ -1,5 +1,4 @@
 const Plugin = require('../Plugin');
-const { getPlayerByUuid } = require('../util/Util');
 
 class DisconnectPlugin extends Plugin {
   constructor(server) {
@@ -9,7 +8,7 @@ class DisconnectPlugin extends Plugin {
       const player = event.player;
       console.log('player left', player.uuid);
       this.server.players.delete(
-        getPlayerByUuid(player.uuid, this.server.players)
+        this.server.getPlayerByUuid(player.uuid, this.server.players)
       );
       this.server.players.forEach(_player => {
         _player.client.write('player_info', {

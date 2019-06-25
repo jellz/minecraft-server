@@ -24,14 +24,7 @@ const colorCodes = {
   '&': '&'
 };
 
-class Util {
-  static getPlayerByUuid(uuid, players) {
-    for (const p of players) {
-      if (p.uuid === uuid) return p;
-    }
-    return null;
-  }
-
+class ChatUtil {
   static parseColoredMessage(message) {
     if (typeof message === 'object') return message;
 
@@ -107,4 +100,4 @@ class Util {
   }
 }
 
-module.exports = Util;
+module.exports = ChatUtil;

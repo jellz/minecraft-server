@@ -1,6 +1,5 @@
 const Plugin = require('../Plugin');
-const { getPlayerByUuid } = require('../util/Util');
-const ChatColor = require('../util/ChatColor');
+const ChatColor = require('../util/chat/ChatColor');
 
 class LoginPlugin extends Plugin {
   constructor(server) {
@@ -10,7 +9,7 @@ class LoginPlugin extends Plugin {
       console.log(event);
       if (
         this.server.players.has(
-          getPlayerByUuid(event.player.uuid, this.server.players)
+          this.server.getPlayerByUuid(event.player.uuid, this.server.players)
         )
       ) {
         // Player is already logged in from somewhere else (see issue #4)

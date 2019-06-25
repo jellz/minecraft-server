@@ -121,6 +121,11 @@ prismarine-nbt@^1.2.1:
   dependencies:
     protodef "^1.2.1"
 
+properties@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/properties/-/properties-1.2.1.tgz#0ee97a7fc020b1a2a55b8659eda4aa8d869094bd"
+  integrity sha1-Dul6f8AgsaKlW4ZZ7aSqjYaQlL0=
+
 protodef-validator@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/protodef-validator/-/protodef-validator-1.2.2.tgz#68fae789170e60c5a0a72686f56daee8f791f659"

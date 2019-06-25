@@ -1,6 +1,6 @@
 const mc = require('minecraft-protocol');
 const Player = require('./Player');
-const { parseColoredMessage } = require('./util/Util');
+const { parseColoredMessage } = require('./util/chat/ChatUtil');
 const EventEmitter = require('events');
 
 class Server extends EventEmitter {
@@ -28,15 +28,6 @@ class Server extends EventEmitter {
     this.emit('ready');
   }
 
-  broadcastMessage(message) {
-    Object.values(this.server.clients).forEach(_client => {
-      _client.write('chat', {
-        position: 1,
-        message: JSON.stringify(parseColoredMessage(message))
-      });
-    });
-  }
-
   handleLogin(client) {
     console.log('handle login');
     const player = new Player(client, this);
@@ -59,6 +50,22 @@ class Server extends EventEmitter {
     this.emit('connection');
     console.log(client.state, client.version);
     // if (client.state === 'handshaking' && client.version === '1.14.1') {}
+  }
+
+  broadcastMessage(message) {
+    Object.values(this.server.clients).forEach(_client => {
+      _client.write('chat', {
+        position: 1,
+        message: JSON.stringify(parseColoredMessage(message))
+      });
+    });
+  }
+
+  getPlayerByUuid(uuid) {
+    for (const p of this.players) {
+      if (p.uuid === uuid) return p;
+    }
+    return null;
   }
 }
 

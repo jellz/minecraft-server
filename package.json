@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "minecraft-protocol": "^1.9.0"
+    "minecraft-protocol": "^1.9.0",
+    "properties": "^1.2.1"
   }
 }
