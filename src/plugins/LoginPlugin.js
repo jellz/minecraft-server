@@ -28,9 +28,9 @@ class LoginPlugin extends Plugin {
       client.write('login', {
         entityId: client.id,
         levelType: 'default',
-        gameMode: 1,
+        gameMode: this.server.options.gameMode,
         dimension: 0,
-        difficulty: 2,
+        difficulty: this.server.options.difficulty,
         maxPlayers: this.server.options.maxPlayers,
         reducedDebugInfo: false
       });
@@ -50,7 +50,7 @@ class LoginPlugin extends Plugin {
                 UUID: _player.uuid,
                 name: _player.username,
                 properties: _player._properties,
-                gamemode: 1,
+                gamemode: this.server.options.gameMode,
                 ping: _player.latency
               }
             ]
