@@ -6,14 +6,18 @@ const EventEmitter = require('events');
 class Server extends EventEmitter {
   /*
     Events:
-    * playerLogin - when a new player has been added to this.players
+    * playerLogin - when a player logs in
     * ready - when the server is ready
+    * playerSettings - when a player's client settings (e.g. view distance) change
+    * chat - when a player attempts to send a chat message
+    * connection - when a connection is made to the server
   */
   constructor(options = {}) {
     super();
 
     this.options = options;
     this.server = mc.createServer(options);
+    this.server.maxPlayers = options.maxPlayers; // maxPlayers does nothing when passed to createServer() - see this issue: https://github.com/PrismarineJS/node-minecraft-protocol/issues/632
     this.players = new Set(); // LoginPlugin manages this
 
     this.plugins = this.options.plugins.map(plugin => {
@@ -47,7 +51,7 @@ class Server extends EventEmitter {
 
   handleConnection(client) {
     console.log('handle connection');
-    this.emit('connection');
+    this.emit('connection', { client });
     console.log(client.state, client.version);
     // if (client.state === 'handshaking' && client.version === '1.14.1') {}
   }
