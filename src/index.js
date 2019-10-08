@@ -1,4 +1,4 @@
-const doEula = require("./eula");
+const checkEula = require('./eula');
 
 const Server = require('./Server');
 const ConfigManager = require('./config/ConfigManager');
@@ -9,7 +9,7 @@ const DisconnectPlugin = require('./plugins/DisconnectPlugin');
 const ChatPlugin = require('./plugins/ChatPlugin');
 const AnimationPlugin = require('./plugins/AnimationPlugin');
 
-doEula();
+checkEula();
 (async () => {
   const config = await ConfigManager.getConfig();
   console.log(config);
